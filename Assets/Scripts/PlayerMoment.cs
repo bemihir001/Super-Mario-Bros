@@ -21,11 +21,14 @@ public class PlayerMoment : MonoBehaviour
     private Vector2 velocity;
     private float inputAxis;
 
+    // awake() called before start() method, used for initialization tasks, lightweight not the heavy code. 
     private void Awake(){
         rigidbody = GetComponent<Rigidbody2D>();
         camera = Camera.main;
     }
 
+    // update() is automatically called by Unity every frame during the game's execution,  
+    // is to handle the logic that needs to be executed continuously, frame by frame
     private void Update(){
 
         HorizontalMovement();
@@ -34,10 +37,11 @@ public class PlayerMoment : MonoBehaviour
         if (grounded){
             GroundedMovement();
         }
-        
+
         ApplyGravity();
     }
 
+    
     private void HorizontalMovement(){
         inputAxis = Input.GetAxis("Horizontal");
         velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * movSpeed, movSpeed * Time.deltaTime);
@@ -89,7 +93,14 @@ public class PlayerMoment : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.layer != LayerMask.NameToLayer("PowerUp")){
+
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Enemies")){
+            if(transform.DotTest(collision.transform, Vector2.down)){
+                velocity.y = JumpForce / 2f;
+                jumping = true;
+            }
+        }
+        else if(collision.gameObject.layer != LayerMask.NameToLayer("PowerUp")){
             //velocity.y = 0f;
             if(transform.DotTest(collision.transform, Vector2.up)){
                 velocity.y = 0f;

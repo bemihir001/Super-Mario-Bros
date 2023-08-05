@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5687852833188563739}
   m_Layer: 3
   m_Name: Small
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 2220085655012362787}
   m_Layer: 3
   m_Name: Big
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,7 +251,9 @@ GameObject:
   - component: {fileID: 8811460415056234872}
   - component: {fileID: 8811460415056234874}
   - component: {fileID: 8811460415056234873}
+  - component: {fileID: 7641829474973880606}
   - component: {fileID: 8811460415056234875}
+  - component: {fileID: 5005150928845191344}
   m_Layer: 3
   m_Name: Mario
   m_TagString: Player
@@ -313,6 +315,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.5}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &7641829474973880606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811460415056234879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8443838ffe6de4880b74e1395c6bcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smallRenderer: {fileID: 60784625}
+  bigRenderer: {fileID: 1673622190}
 --- !u!114 &8811460415056234875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,3 +344,17 @@ MonoBehaviour:
   movSpeed: 8
   maxJumpHeight: 5
   maxJumpTime: 1
+--- !u!114 &5005150928845191344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8811460415056234879}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350b8f035de8c684f899faf2bf4bd4e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8811460413274428380}
+  deadSprite: {fileID: 21300000, guid: 5cbad71518d32504d96deb95a0b96d67, type: 3}
